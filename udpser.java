@@ -32,41 +32,12 @@ class udpser {
 		while (true) {
 			socket.receive(rxPacket);
 			System.out.println("Rx: " + rxPacket.getData());
-			byte[] result = operate(rxPacket.getData(), SECRET);
-			DatagramPacket txPacket = new DatagramPacket(result, result.length, rxPacket.getAddress(),
+
+			int result = new operation(rxPacket.getData()).solve() + SECRET;
+			byte[] txData = String.valueOf(result).getBytes();
+			DatagramPacket txPacket = new DatagramPacket(txData, txData.length, rxPacket.getAddress(),
 					rxPacket.getPort());
 			socket.send(txPacket);
 		}
-	}
-
-	private static byte[] operate(byte[] data, int SECRET) {
-		String input = new String(data);
-		String[] partes = input.split("[+-/*]");
-
-		int n1 = Integer.parseInt(partes[0]);
-		int n2 = Integer.parseInt(partes[1]);
-
-		// si el primer numero mide N signos, el signo estara en la posicion N
-		byte operation = data[partes[0].length()];
-		int result;
-		switch (operation) {
-			case '+':
-				result = n1 + n2;
-				break;
-			case '-':
-				result = n1 - n2;
-				break;
-			case '*':
-				result = n1 * n2;
-				break;
-			case '/':
-				result = n1 / n2;
-				break;
-			default:
-				throw new IllegalArgumentException("Operador no válido: " + operation);
-		}
-		result += SECRET;
-
-		return String.valueOf(result).getBytes();
 	}
 }
