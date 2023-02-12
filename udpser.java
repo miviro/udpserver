@@ -6,9 +6,9 @@ class udpser {
 	public static void main(String[] args) throws IOException {
 		int PORT_NUMBER, SECRET;
 		try {
-			assert args.length == 2; // udpser port_numer secreto
-			PORT_NUMBER = Integer.parseInt(args[1]);
-			SECRET = Integer.parseInt(args[2]);
+			assert args.length == 2; // java udpser port_number(arg0) secreto(arg1)
+			PORT_NUMBER = Integer.parseInt(args[0]);
+			SECRET = Integer.parseInt(args[1]);
 
 			assert PORT_NUMBER >= 1 && PORT_NUMBER <= 65535;
 			assert SECRET >= 0 && SECRET <= 255;
