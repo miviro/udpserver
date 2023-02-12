@@ -13,7 +13,7 @@ class udpser {
 			assert PORT_NUMBER >= 1 && PORT_NUMBER <= 65535;
 			assert SECRET >= 0 && SECRET <= 255;
 		} catch (Exception e) {
-			System.out.println("Error en el formato de los argumentos. El formato correcto es:");
+			System.out.println("Error en el formato o valor de los argumentos. El formato correcto es:");
 			System.out.println("			udpser [numero de puerto] [secreto]");
 			return;
 		}
