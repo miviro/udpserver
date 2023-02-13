@@ -5,24 +5,19 @@ import java.net.DatagramSocket;
 public class udpser {
 	public static void main(String[] args) throws IOException {
 		int PORT_NUMBER, SECRET;
-		/*
-		 * try {
-		 * assert args.length == 2; // java udpser port_number(arg0) secreto(arg1)
-		 * PORT_NUMBER = Integer.parseInt(args[0]);
-		 * SECRET = Integer.parseInt(args[1]);
-		 * 
-		 * assert PORT_NUMBER >= 1 && PORT_NUMBER <= 65535;
-		 * assert SECRET >= 0 && SECRET <= 255;
-		 * } catch (Exception e) {
-		 * System.out.
-		 * println("Error en el formato o valor de los argumentos. El formato correcto es:"
-		 * );
-		 * System.out.println("			udpser [numero de puerto] [secreto]");
-		 * return;
-		 * }
-		 */
-		PORT_NUMBER = 8887;
-		SECRET = 0;
+		try {
+			assert args.length == 2; // java udpser port_number(arg0) secreto(arg1)
+			PORT_NUMBER = Integer.parseInt(args[0]);
+			SECRET = Integer.parseInt(args[1]);
+
+			assert PORT_NUMBER >= 1 && PORT_NUMBER <= 65535;
+			assert SECRET >= 0 && SECRET <= 255;
+		} catch (Exception e) {
+			System.out.println("Error en el formato o valor de los argumentos. El formato correcto es:");
+			System.out.println("			udpser [numero de puerto] [secreto]");
+			return;
+		}
+
 		DatagramSocket socket = new DatagramSocket(PORT_NUMBER);
 		// maxima longitud de paquete recibido: 255+255: 7 bytes
 		byte[] rx = new byte[7];
