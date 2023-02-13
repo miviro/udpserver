@@ -10,6 +10,9 @@ public class udpcli {
 		byte[] OPERATION;
 		int PORT_NUMBER;
 		try {
+			// asumimos que con "En caso de que el número de parámetros introducido en la
+			// línea de comandos sea menor que el requerido"
+			// tambien incluya cuando tengamos mas argumentos de los debidos
 			assert args.length == 3;
 
 			IP_ADDR = InetAddress.getByName(args[0]);
