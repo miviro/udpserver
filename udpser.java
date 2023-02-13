@@ -37,7 +37,7 @@ class udpser {
 			DatagramPacket txPacket = new DatagramPacket(txData, txData.length, rxPacket.getAddress(),
 					rxPacket.getPort());
 			socket.send(txPacket);
-			System.out.println("Rx: " + new String(rxPacket.getData()) + "Tx: " + new String(txPacket.getData()));
+			System.out.println("Rx: " + new String(rxPacket.getData()) + " Tx: " + new String(txPacket.getData()));
 		}
 	}
 }
