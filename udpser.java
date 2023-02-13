@@ -31,13 +31,13 @@ class udpser {
 		// (menos justo cuando reciba un paquete)
 		while (true) {
 			socket.receive(rxPacket);
-			System.out.println("Rx: " + rxPacket.getData());
 
 			int result = new operation(rxPacket.getData()).solve() + SECRET;
 			byte[] txData = String.valueOf(result).getBytes();
 			DatagramPacket txPacket = new DatagramPacket(txData, txData.length, rxPacket.getAddress(),
 					rxPacket.getPort());
 			socket.send(txPacket);
+			System.out.println("Rx: " + new String(rxPacket.getData()) + "Tx: " + new String(txPacket.getData()));
 		}
 	}
 }
