@@ -31,6 +31,7 @@ public class udpcli {
 		socket.send(txPacket);
 
 		// maxima longitud recibida: 255*255 = 65025 (5 bytes)
+		// el secreto (max 255) no introduce bytes
 		byte[] rxData = new byte[5];
 		DatagramPacket rxPacket = new DatagramPacket(rxData, rxData.length);
 
