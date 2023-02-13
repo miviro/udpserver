@@ -6,8 +6,10 @@ public class operation {
 		String input = new String(operation);
 		String[] partes = input.split("[+-/*]");
 
-		n1 = Integer.parseInt(partes[0]);
-		n2 = Integer.parseInt(partes[1]);
+		// trim es necesario ya que debemos eliminar los whitespaces
+		// para que parseint no tenga problemas convirtiendo
+		n1 = Integer.parseInt(partes[0].trim());
+		n2 = Integer.parseInt(partes[1].trim());
 
 		// si el primer numero mide N signos, el signo estara en la posicion N
 		sign = operation[partes[0].length()];
